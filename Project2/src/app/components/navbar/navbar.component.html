@@ -18,7 +18,19 @@
             <img class="profile-image" src="https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png" alt=""/>
         </div>
         <div style="margin-right: 2%;">
-            <strong>{{currUser.firstName}} {{currUser.lastName}}</strong>
+            
+            <div class="btn-group">
+                <button type="button" class="btn"><strong>{{currUser.firstName}} {{currUser.lastName}}</strong></button>
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Account Settings</a>
+                    <a class="dropdown-item" href="#">Edit Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </div>
         </div>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
