@@ -2,19 +2,20 @@
         <div class="jumbotron">
           <div class="row">
               <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                  <img src="https://www.svgimages.com/svg-image/s5/man-passportsize-silhouette-icon-256x256.png" alt="stack photo" class="img">
+                  <img class="profile-image" src={{profile.profileImage}} alt="Profile Image">
               </div>
               <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                   <div class="container" style="border-bottom:1px solid black">
-                    <h2>John Doe</h2>
+                    <h2>{{owner.firstName}} {{owner.lastName}}</h2>
                   </div>
                     <hr>
                   <ul class="container details">
-                    <li><span>number</span><span>1 90000 00000</span></li>
-                    <li>somerandom@email.com</li>
-                    <li>Hyderabad</li>
+                    <li><span><h5>Galaxy, Solar System, Planet</h5></span><span>{{profile.galaxy}}, {{profile.solarSystem}}, {{profile.planet}} </span></li>
+                    <li><h5>Email</h5>{{profile.email}}</li>
+                    <li><span><h5>Bio</h5></span><span>{{profile.bio}}</span></li>
                     </ul>          
                  </div>       
                 </div>     
             </div> 
         </div>
+        <app-feed></app-feed>
