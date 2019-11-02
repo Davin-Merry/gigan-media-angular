@@ -22,6 +22,14 @@ body {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+.card-reg {
+    height: 500px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .social_icon span {
   font-size: 60px;
   margin-left: 10px;
@@ -37,10 +45,8 @@ body {
   color: white;
 }
 
-.social_icon {
-  position: absolute;
-  right: 20px;
-  top: -45px;
+.card-footer2 {
+    margin-top: 80px;
 }
 
 .input-group-prepend span {

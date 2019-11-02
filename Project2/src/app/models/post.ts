@@ -7,4 +7,12 @@ export class Post {
     set postText(text:string) {
         this.text = text;
     }
+
+    get postCreator():User {
+        return this.creator;
+    }
+
+    get profilePicture():string {
+        return this.creator._profile._profileImage;
+    }
 }
