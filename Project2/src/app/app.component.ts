@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Project2';
-  currentUser = sessionStorage.getItem("user");
+  currentUser = sessionStorage.getItem('user');
 }
