@@ -10,4 +10,8 @@ export class User {
     get _profile() {
         return this.profile;
     }
+
+    toString(): string {
+        return JSON.stringify(this);
+    }
 }

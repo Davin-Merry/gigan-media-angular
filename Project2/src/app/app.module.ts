@@ -11,12 +11,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
+import { AccountComponent } from './components/account/account.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'account', component: AccountComponent}
 ]
 
 @NgModule({
@@ -28,7 +30,8 @@ export const routes: Routes = [
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

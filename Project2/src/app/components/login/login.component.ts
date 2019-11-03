@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   registration = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  performLogin(email, pass) {
+    sessionStorage.setItem('user', new User('John', 'Doe', email, pass, '', null).toString());
   }
 
   toggleRegister() {
