@@ -8,16 +8,17 @@ import { Profile } from 'src/app/models/profile';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  private pro = null;
   currUser = null;
 
   constructor() { }
 
   ngOnInit() {
-    // this.pro = new Profile('', '', '', '', '', '');
-    // this.currUser = new User('First', 'Last', 'myemail@mail.com', '', '', this.pro);
+    this.performCheck();
+  }
+
+  performCheck() {
     this.currUser = JSON.parse(sessionStorage.getItem('user'));
-    console.log(this.currUser);
+    console.log("NavbarComponent: Check performed.")
   }
 
   performLogout() {

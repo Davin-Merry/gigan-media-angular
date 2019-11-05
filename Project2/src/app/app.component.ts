@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Project2';
   currUser = sessionStorage.getItem('user');
+
   public setCurrUser() {
     this.currUser = sessionStorage.getItem('user');
   }

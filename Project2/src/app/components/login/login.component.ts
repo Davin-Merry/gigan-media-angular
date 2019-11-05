@@ -4,6 +4,8 @@ import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +28,12 @@ export class LoginComponent implements OnInit {
     }).toPromise().then(r => {
       if (r != null) {
         sessionStorage.setItem('user', JSON.stringify(r));
+        //this.router.navigateByUrl('/', {skipLocationChange: true});
         this.router.navigate(['/home']);
       } else {
         this.failedLogin = true;
       }
     });
-    //sessionStorage.setItem('user', new User('John', 'Doe', e, p, '', null).toString());
   }
   
   performRegister(form:NgForm) {
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
         email: form.value.email,
         firstName: form.value.firstName,
         lastName: form.value.lastName,
-        password: form.value.pass
+        password: form.value.pass,
+        profileImage: 'https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png'
       }).toPromise().then(r => console.log(r));
     }
   }

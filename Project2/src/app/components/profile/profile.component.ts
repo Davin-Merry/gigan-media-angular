@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { Profile } from 'src/app/models/profile';
-import { environment } from 'src/environments/environment.prod';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  owner:User;
-  profile:Profile;
+  owner: any;
 
   constructor(private router: Router) { }
 
@@ -19,10 +15,7 @@ export class ProfileComponent implements OnInit {
     if (!sessionStorage.getItem('user')) {
       this.router.navigate(['/login']);
     }
-    this.owner = new User("First", "Last", "mail@email.com", "", "");
-    this.profile = new Profile("https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis augue nec egestas consequat. Sed vel quam lacus. Aliquam quis blandit tellus. Pellentesque consectetur efficitur finibus. Nulla facilisi. Mauris nec viverra risus. Ut eu diam libero. Cras efficitur vel tellus sed iaculis. Sed ut turpis nec nunc aliquet fermentum. Duis vulputate orci urna, ut ultricies odio tincidunt malesuada.",
-    "Galaxy", "Solar System", "Planet", this.owner._email);
+    this.owner = JSON.parse(sessionStorage.getItem('user'));
   }
 
 }

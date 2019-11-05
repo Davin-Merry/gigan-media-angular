@@ -1,21 +1,21 @@
 <div class="container">    
-        <div class="jumbotron">
-          <div class="row">
-              <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                  <img class="profile-image" src={{profile.profileImage}} alt="Profile Image">
-              </div>
-              <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
-                  <div class="container" style="border-bottom:1px solid black">
-                    <h2>{{owner.firstName}} {{owner.lastName}}</h2>
-                  </div>
-                    <hr>
-                  <ul class="container details">
-                    <li><span><h5>Galaxy, Planet</h5></span><span>{{profile.galaxy}}, {{profile.planet}} </span></li>
-                    <li><h5>Email</h5>{{profile.email}}</li>
-                    <li><span><h5>Bio</h5></span><span>{{profile.bio}}</span></li>
-                    </ul>          
-                 </div>       
-                </div>     
-            </div> 
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+          <img class="profile-image" src={{owner.profileImage}} alt="https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png">
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+          <h2>{{owner.firstName}} {{owner.lastName}}</h2>
         </div>
-        <app-feed></app-feed>
+        <hr>
+        <ul class="container details">
+          <li><span><h5>Galaxy, Planet</h5></span><span>{{owner.galaxy}}, {{owner.planet}} </span></li>
+          <li><h5>Email</h5>{{owner.email}}</li>
+          <li><span><h5>Bio</h5></span><span>{{owner.bio}}</span></li>
+        </ul>          
+      </div>
+    </div>
+  </div>
+</div>
+<app-feed></app-feed>

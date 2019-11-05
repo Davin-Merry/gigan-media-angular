@@ -2,7 +2,7 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h1>{{user.firstName}} {{user.lastName}}</h1></div>
+  		<div class="col-sm-10"><h1>Account Settings ({{owner.firstName}} {{owner.lastName}})</h1></div>
     	
     </div>
     <div class="row">
@@ -10,7 +10,7 @@
               
 
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <img src="{{owner.profileImage || 'https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png'}}" class="avatar img-circle img-thumbnail" alt="">
         <h6>Upload a different photo...</h6>
         <input type="file" class="text-center center-block file-upload">
       </div>
@@ -50,47 +50,58 @@
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" action="javascript.void(0);" method="post" id="registrationForm">
+                  <form class="form" #update=ngForm (ngSubmit) = "performUpdate(update)">
                       <div class="form-group">
                           
                           <div class="column">
                               <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                              <input type="text" class="form-control" name="firstName" placeholder="{{owner.firstName}}" title="Enter your first name" ngModel>
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="column">
                             <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                              <input type="text" class="form-control" name="lastName" placeholder="{{owner.lastName}}" title="Enter your last name" ngModel>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="column">
+                              <label for="email"><h4>Galaxy</h4></label>
+                              <input type="email" class="form-control" name="galaxy" placeholder="Galaxy name" title="Enter a Galaxy location" ngModel>
+                          </div>
+                      </div>
+                    <div class="form-group">
+                        <div class="column">
+                            <label for="email"><h4>Planet</h4></label>
+                            <input type="email" class="form-control" name="planet" placeholder="Planet name" title="Enter a Planet location" ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                          
+                        <div class="column">
+                            <label for="password"><h4>Password:</h4></label>
+                            <input type="password" class="form-control" name="pass" placeholder="Password" ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="column">
+                            <br><br><br><br> <!-- A sort of hack-y way of doing this, but it works ¯\_(ツ)_/¯ -->
+                        </div>
+
+                    </div>
+                      <div class="form-group">
+                          
+                          <div class="column">
+                              <label for="password"><h4>Change Password:</h4></label>
+                              <input type="password" class="form-control" name="newPass" placeholder="Password" ngModel>
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="column">
-                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="column">
-                              <label for="email"><h4>Location</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="column">
-                              <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="column">
-                            <label for="password2"><h4>Verify</h4></label>
-                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            <label for="password2"><h4>Verify New Password:</h4></label>
+                              <input type="password" class="form-control" name="cPass" placeholder="Veirfy Password" ngModel>
                           </div>
                       </div>
                       <div class="column-button">
