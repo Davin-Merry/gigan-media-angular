@@ -19,6 +19,7 @@ export class AccountComponent implements OnInit {
 }
 // TODO: 
 
+/*
 $(document).ready(function() {
 
     
@@ -39,3 +40,5 @@ $(document).ready(function() {
       readURL(this);
   });
 });
+
+*/

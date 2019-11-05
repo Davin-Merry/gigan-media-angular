@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AlertComponent } from './components/alert/alert.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -12,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
 import { AccountComponent } from './components/account/account.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -24,7 +25,6 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent,
     ProfileComponent,
     FeedComponent,
     NavbarComponent,
@@ -36,7 +36,10 @@ export const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload'})
   ],
   providers: [],
   bootstrap: [AppComponent]

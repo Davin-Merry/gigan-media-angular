@@ -14,11 +14,13 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.pro = new Profile('', '', '', '', '', '');
-    this.currUser = new User('First', 'Last', 'myemail@mail.com', '', '', this.pro);
+    // this.pro = new Profile('', '', '', '', '', '');
+    // this.currUser = new User('First', 'Last', 'myemail@mail.com', '', '', this.pro);
+    this.currUser = JSON.parse(sessionStorage.getItem('user'));
+    console.log(this.currUser);
   }
 
   performLogout() {
-    sessionStorage.setItem('user', '');
+    sessionStorage.clear();
   }
 }

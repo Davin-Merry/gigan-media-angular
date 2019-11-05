@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +13,36 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   registration = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
-
-  performLogin(email, pass) {
-    sessionStorage.setItem('user', new User('John', 'Doe', email, pass, '', null).toString());
+  
+  failedLogin = false;
+  performLogin(form:NgForm) {
+    this.http.post(environment.mainUrl + "user/processLogin.app", {
+      email: form.value.email,
+      password: form.value.pass
+    }).toPromise().then(r => {
+      if (r != null) {
+        sessionStorage.setItem('user', JSON.stringify(r));
+        this.router.navigate(['/home']);
+      } else {
+        this.failedLogin = true;
+      }
+    });
+    //sessionStorage.setItem('user', new User('John', 'Doe', e, p, '', null).toString());
+  }
+  
+  performRegister(form:NgForm) {
+    if (form.value.pass === form.value.cPass) {
+      this.http.post(environment.mainUrl + "user/putIn.app", {
+        email: form.value.email,
+        firstName: form.value.firstName,
+        lastName: form.value.lastName,
+        password: form.value.pass
+      }).toPromise().then(r => console.log(r));
+    }
   }
 
   toggleRegister() {
