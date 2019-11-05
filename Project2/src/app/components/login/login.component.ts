@@ -14,6 +14,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class LoginComponent implements OnInit {
   registration = false;
+  registerAlert = false;
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -28,7 +29,6 @@ export class LoginComponent implements OnInit {
     }).toPromise().then(r => {
       if (r != null) {
         sessionStorage.setItem('user', JSON.stringify(r));
-        //this.router.navigateByUrl('/', {skipLocationChange: true});
         this.router.navigate(['/home']);
       } else {
         this.failedLogin = true;
@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
         lastName: form.value.lastName,
         password: form.value.pass,
         profileImage: 'https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png'
-      }).toPromise().then(r => console.log(r));
+      }).toPromise().then(r => {this.registration = false; console.log(r)});
+    } else {
+      this.registerAlert = true;
     }
   }
 

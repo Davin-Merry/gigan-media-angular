@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   performCheck() {
     this.currUser = JSON.parse(sessionStorage.getItem('user'));
     console.log("NavbarComponent: Check performed.")
+    console.log("currUser: " + this.currUser);
   }
 
   performLogout() {

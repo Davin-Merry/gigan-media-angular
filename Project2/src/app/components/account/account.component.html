@@ -11,16 +11,14 @@
 
       <div class="text-center">
         <img src="{{owner.profileImage || 'https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png'}}" class="avatar img-circle img-thumbnail" alt="">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <h6>Upload a new profile pic...</h6>
+        <!--<input type="file" class="text-center center-block file-upload"> -->
+        <!--<button type="file" style="text-align: left;" class="btn btn-secondary">Browse...</button>-->
       </div>
-    
-
-               
-          <div class="panel panel-default">
-            <!-- <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div> -->
-          </div>
+      <label class="btn btn-secondary" style="text-align: center;">
+          Browse...
+          <input type="file" accept="image/*" hidden>
+      </label>
           
 <!--          
           <ul class="list-group">
@@ -40,17 +38,10 @@
           
         </div><!--/col-3-->
     	<div class="col-sm-9">
-            <!-- <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                <li><a data-toggle="tab" href="#messages">Menu 1</a></li>
-                <li><a data-toggle="tab" href="#settings">Menu 2</a></li>
-              </ul> -->
-
-              
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" #update=ngForm (ngSubmit) = "performUpdate(update)">
+                  <form class="form1" #update=ngForm (ngSubmit) = "performUpdate(update)">
                       <div class="form-group">
                           
                           <div class="column">
@@ -77,19 +68,13 @@
                             <input type="email" class="form-control" name="planet" placeholder="Planet name" title="Enter a Planet location" ngModel>
                         </div>
                     </div>
-                    <div class="form-group">
-                          
-                        <div class="column">
-                            <label for="password"><h4>Password:</h4></label>
-                            <input type="password" class="form-control" name="pass" placeholder="Password" ngModel>
-                        </div>
+                    <div class="column-button">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit">Save</button>
                     </div>
-                    <div class="form-group">
-                        <div class="column">
-                            <br><br><br><br> <!-- A sort of hack-y way of doing this, but it works ¯\_(ツ)_/¯ -->
-                        </div>
-
-                    </div>
+                </form>
+                <br><br>
+                <form class="form2" #passUpdate=ngForm (ngSubmit) = "performPassUpdate(passUpdate)">
                       <div class="form-group">
                           
                           <div class="column">
