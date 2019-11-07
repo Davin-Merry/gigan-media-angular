@@ -58,7 +58,6 @@ export class AccountComponent implements OnInit {
       this.owner.planet = form.value.planet;
       this.owner.bio = form.value.bio;
       sessionStorage.setItem('user', JSON.stringify(this.owner));
-      new NavbarComponent().performCheck();
       console.log(r);
       location.reload();
     });

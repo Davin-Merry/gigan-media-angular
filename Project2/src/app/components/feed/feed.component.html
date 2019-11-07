@@ -1,6 +1,42 @@
-<!-- TODO: Perform a for-loop to iterate through posts and their owners -->
-<div *ngIf="doneLoading">
-    <div *ngFor="let p of posts">
-        <app-post></app-post>
+<div *ngIf="!doneLoading" style="text-align: center;">Loading...</div>
+<div *ngFor="let p of posts; index as i">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <!--
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <a href="#">
+                        <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/10/http-www.urchinbali.comgallery.jpg"
+                            class="img-responsive img-box img-thumbnail" alt="">
+                    </a>
+                </div>
+                -->
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-picture">
+                                <a href="/profile" (click)="gotoSelectedProfile(i)">
+                                    <img class="circle img-thumbnail img-box" src="{{p.blogger.profileImage}}" alt="">
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <div class="list-group-item-heading">
+                                    <a href="/profile" (click)="gotoSelectedProfile(i)">
+                                        <small>{{p.blogger.firstName}} {{p.blogger.lastName}}</small>
+                                    </a>
+                                </div>
+                                <small>
+                                    <em class="glyphicon glyphicon-time"></em>{{p.time | date}}
+                                    <br><br>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <p>{{p.text}}</p>
+                </div>
+            </div>
+        </div>
+        <span><button type="button" class="btn btn-secondary btn-sm">Like</button></span><span> ({{p.likes.length}} Likes)</span>
+    <div style="padding-bottom: 40px;"></div>
     </div>
 </div>
