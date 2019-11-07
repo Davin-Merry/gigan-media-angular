@@ -1,18 +1,26 @@
 import { User } from './user';
 
 export class Post {
-    constructor(private postId:number, private creator:User, private text:string,
+    constructor(private postId:number, private blogger:User, private text:string,
                 private images:string[], private time:number, private likes:User[]) {}
-    
-    set postText(text:string) {
-        this.text = text;
-    }
 
     get postCreator():User {
-        return this.creator;
+        return this.blogger;
+    }
+
+    get postText(): string {
+        return this.text;
+    }
+
+    get postImages(): string[] {
+        return this.images;
+    }
+
+    get postTime(): Date {
+        return new Date(this.time);
     }
 
     get profilePicture():string {
-        return this.creator._profile._profileImage;
+        return this.blogger._profile._profileImage;
     }
 }

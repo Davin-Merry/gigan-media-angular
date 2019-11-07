@@ -7,27 +7,26 @@
     		    
     		    <div class="form-group">
     		        <label for="description">Make a post!</label>
-    		        <textarea rows="5" class="form-control" name="postContent" ngModel></textarea>
-    		    </div>    		    
+    		        <textarea rows="5" class="form-control" name="postContent" style="resize: none;" ngModel></textarea>
+    		    </div>
     		    <div class="form-group">
-						<h6>Add a photo!</h6>
-						<label class="btn btn-secondary" style=margin-right:500px>
-							Upload
-							<input type="file" accept="image/*" (change) = "uploadImage($event.target.files[0])" name="postPhoto" hidden>
-						</label>
-    		        <button type="submit" class="btn btn-primary">
+					<h6>Add a photo!</h6>
+					<label class="btn btn-secondary" style=margin-right:500px>
+						Upload
+						<input type="file" accept="image/*" (change) = "uploadImage($event.target.files[0])" name="postPhoto" hidden>
+					</label>
+    		        <button type="submit" class="btn btn-primary" [hidden]="textLength">
     		            Create
     		        </button>
     		        <button class="btn btn-default" type="reset" value="reset">
     		            Cancel
     		        </button>
     		    </div>
-    		    
     		</form>
 		</div>
-		
 	</div>
 </div>
+
 <div style=padding-top:20px>
-<app-feed></app-feed>
+	<app-feed></app-feed>
 </div>

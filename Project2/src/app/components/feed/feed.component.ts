@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-feed',
@@ -7,15 +8,17 @@ import { Post } from 'src/app/models/post';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  post:Post;
+  posts:Post[];
+  doneLoading = false;
 
-  constructor() { }
+  constructor(http: HttpClient) { }
 
   ngOnInit() {
+    this.doneLoading = true;
   }
 
   postText():string {
-    return this.post.postText;
+    return this.posts[0].postText;
   }
 
 }

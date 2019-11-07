@@ -1,2 +1,6 @@
 <!-- TODO: Perform a for-loop to iterate through posts and their owners -->
-<app-post></app-post>
+<div *ngIf="doneLoading">
+    <div *ngFor="let p of posts">
+        <app-post></app-post>
+    </div>
+</div>
