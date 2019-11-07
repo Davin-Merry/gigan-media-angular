@@ -100,7 +100,6 @@ export class AccountComponent implements OnInit {
       }).subscribe(event => {
         console.log(event);
         if (event.type == 4) {
-          
           location.reload();
         }
       });

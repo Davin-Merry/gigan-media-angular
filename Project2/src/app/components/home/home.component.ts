@@ -23,16 +23,19 @@ export class HomeComponent implements OnInit {
   submitPost(form:NgForm) {
     //TODO: Perform a POST on images BEFORE publishing a new post from user. 
     console.log(form.value.postContent);
-    console.log(Date.now());
 
-    this.http.post(environment.mainUrl + "post/putIn.app", {
+    let data = {
       postId: 0,
-      blogger: sessionStorage.getItem('user'),
-      text: form.value,
+      blogger: JSON.parse(sessionStorage.getItem('user')),
+      text: form.value.postContent,
       images: [],
       time: Date.now(),
       likes: []
-    }).toPromise().then(r => {
+    }
+    console.log(data);
+
+    this.http.post(environment.mainUrl + "post/putIn.app", data
+    ).toPromise().then(r => {
       console.log("Data reflected:")
       console.log(r);
     });
