@@ -12,6 +12,8 @@ export class SharedService {
 
   setSelectedUser(u: any) {
     this.selectedUser = u;
+    console.log('new user selected');
+    console.log(this.selectedUser);
   }
 
 }

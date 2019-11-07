@@ -1,7 +1,10 @@
-<div *ngIf="currUser">
-  <app-navbar></app-navbar>
-</div>
+<div class="mainBackground"></div>
+<div class="mainContent">
+  <div *ngIf="currUser">
+    <app-navbar></app-navbar>
+  </div>
 
-<div style="padding-top: 60px">
-  <router-outlet></router-outlet>
+  <div style="padding-top: 60px">
+    <router-outlet></router-outlet>
+  </div>
 </div>

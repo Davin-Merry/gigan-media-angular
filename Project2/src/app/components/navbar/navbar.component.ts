@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class NavbarComponent implements OnInit {
   currUser = null;
 
-  constructor(private ss: SharedService) {
+  constructor() {
 
   }
 
@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   showOwnProfile() {
-    this.ss.setSelectedUser(JSON.parse('user'));
+    sessionStorage.setItem('selectedUser', sessionStorage.getItem('user'))
   }
 
   performLogout() {

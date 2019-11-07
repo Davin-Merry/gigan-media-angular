@@ -18,6 +18,6 @@ export class ProfileComponent implements OnInit {
     if (!sessionStorage.getItem('user')) {
       this.router.navigate(['/login']);
     }
-    this.ss.selectedUser.subscribe(sUser => this.owner = sUser);
+    this.owner = sessionStorage.getItem('selectedUser');
   }
 }

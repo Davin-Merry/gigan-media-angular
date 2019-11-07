@@ -24,7 +24,7 @@ export class FeedComponent implements OnInit {
   }
 
   gotoSelectedProfile(index: number) {
-    
+    console.log(index);
   }
 
   postText():string {
