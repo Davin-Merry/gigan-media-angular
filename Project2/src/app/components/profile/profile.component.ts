@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +9,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class ProfileComponent implements OnInit {
   owner: any;
 
-  constructor(private router: Router, private ss: SharedService) {
+  constructor(private router: Router) {
 
   }
 
@@ -18,6 +17,6 @@ export class ProfileComponent implements OnInit {
     if (!sessionStorage.getItem('user')) {
       this.router.navigate(['/login']);
     }
-    this.owner = sessionStorage.getItem('selectedUser');
+    this.owner = JSON.parse(sessionStorage.getItem('selectedUser'));
   }
 }

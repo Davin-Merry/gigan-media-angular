@@ -8,4 +8,7 @@ li {
 
 .profile-image {
   border-radius: 50%;
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
 }

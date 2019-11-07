@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user';
 import { Profile } from 'src/app/models/profile';
 import { ProfileComponent } from '../profile/profile.component';
 import { SharedService } from 'src/app/services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class NavbarComponent implements OnInit {
   currUser = null;
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
@@ -21,7 +22,12 @@ export class NavbarComponent implements OnInit {
   }
 
   showOwnProfile() {
-    sessionStorage.setItem('selectedUser', sessionStorage.getItem('user'))
+    sessionStorage.setItem('selectedUser', sessionStorage.getItem('user'));
+    if (this.router.url != '/profile') {
+      this.router.navigate(['/profile']);
+    } else {
+      location.reload();
+    }
   }
 
   performLogout() {

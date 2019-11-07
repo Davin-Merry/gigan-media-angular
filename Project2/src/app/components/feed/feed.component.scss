@@ -23,6 +23,7 @@
     display: block;
     width: 56px;
     height: 56px;
+    object-fit: cover;
   }
   .list-group .list-group-item .row-picture img,
   .list-group .list-group-item .row-action-primary img {
@@ -130,8 +131,6 @@
   border-radius: 25px; 
   padding-bottom:10px;
   padding-left:20px; 
-  
-
   }
 
  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -13,7 +14,7 @@ export class FeedComponent implements OnInit {
   doneLoading = false;
   profilePosts = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.http.get(environment.mainUrl + "post/getAll.app").toPromise().then(r => {
@@ -24,7 +25,9 @@ export class FeedComponent implements OnInit {
   }
 
   gotoSelectedProfile(index: number) {
-    console.log(index);
+    console.log(this.posts[index].blogger);
+    sessionStorage.setItem('selectedUser', JSON.stringify(this.posts[index].blogger));
+    this.router.navigate(['/profile']);
   }
 
   postText():string {

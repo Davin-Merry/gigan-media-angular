@@ -11,17 +11,17 @@
                     </a>
                 </div>
                 -->
-                <div class="col-xs-12 col-sm-9 col-md-9">
+                <div>
                     <div class="list-group">
                         <div class="list-group-item">
                             <div class="row-picture">
-                                <a href="/profile" (click)="gotoSelectedProfile(i)">
+                                <a href="javascript:void(0);" (click)="gotoSelectedProfile(i)">
                                     <img class="circle img-thumbnail img-box" src="{{p.blogger.profileImage}}" alt="">
                                 </a>
                             </div>
                             <div class="row-content">
                                 <div class="list-group-item-heading">
-                                    <a href="/profile" (click)="gotoSelectedProfile(i)">
+                                    <a href="javascript:void(0);" (click)="gotoSelectedProfile(i)">
                                         <small>{{p.blogger.firstName}} {{p.blogger.lastName}}</small>
                                     </a>
                                 </div>
@@ -31,8 +31,9 @@
                                 </small>
                             </div>
                         </div>
+                        <p>{{p.text}}</p>
                     </div>
-                    <p>{{p.text}}</p>
+                    
                 </div>
             </div>
         </div>
