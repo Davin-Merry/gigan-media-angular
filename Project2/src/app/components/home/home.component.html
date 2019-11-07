@@ -5,18 +5,16 @@
    		
     		<form #post=ngForm (ngSubmit)= "submitPost(post)">
     		    
-                <div class="text-left">
-                    <img src="https://sanitationsolutions.net/wp-content/uploads/2015/05/empty-image.png" class="avatar img-circle img-thumbnail" alt="avatar">
-
-                </div>
-    		    
     		    <div class="form-group">
     		        <label for="description">Make a post!</label>
     		        <textarea rows="5" class="form-control" name="postContent" ngModel></textarea>
     		    </div>    		    
     		    <div class="form-group">
-                        <h6>Add a photo to your post!</h6>
-                        <input type="file" class="text-center center-block file-upload" accept="image/*" name="photo" ngModel>
+						<h6>Add a photo!</h6>
+						<label class="btn btn-secondary" style=margin-right:500px>
+							Upload
+							<input type="file" accept="image/*" (change) = "uploadImage($event.target.files[0])" name="postPhoto" hidden>
+						</label>
     		        <button type="submit" class="btn btn-primary">
     		            Create
     		        </button>

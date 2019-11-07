@@ -10,15 +10,19 @@
               
 
       <div class="text-center">
-        <img src="{{owner.profileImage || 'https://gigan-media-bucket.s3.us-east-2.amazonaws.com/profile_images/profile_default_x256.png'}}" class="avatar img-circle img-thumbnail" alt="">
-        <h6>Upload a new profile pic...</h6>
-        <!--<input type="file" class="text-center center-block file-upload"> -->
-        <!--<button type="file" style="text-align: left;" class="btn btn-secondary">Browse...</button>-->
+        <img [src]="currentImage" class="avatar img-circle img-thumbnail" alt="">
+        <h6>{{fileToUpload}}</h6>
       </div>
-      <label class="btn btn-secondary" style="text-align: center;">
-          Browse...
-          <input type="file" accept="image/*" hidden>
-      </label>
+        <form (ngSubmit) = "submit()">
+            <label class="btn btn-secondary">
+                Browse...
+                <input type="file" name="pImg" accept="image/*" (change) = "fileSelect($event)" hidden>
+            </label>
+            <label [class]="submitClass">
+                Submit
+                <input [class]="submitClass" type="submit" hidden>
+            </label>
+        </form>
           
 <!--          
           <ul class="list-group">
@@ -41,7 +45,7 @@
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form1" #update=ngForm (ngSubmit) = "performUpdate(update)">
+                  <form class="form1" id="formInfo" #update=ngForm (ngSubmit) = "performUpdate(update)">
                       <div class="form-group">
                           
                           <div class="column">
@@ -58,16 +62,27 @@
                       </div>
                       <div class="form-group">
                           <div class="column">
-                              <label for="email"><h4>Galaxy</h4></label>
-                              <input type="email" class="form-control" name="galaxy" placeholder="Galaxy name" title="Enter a Galaxy location" ngModel>
+                              <label for="galaxy"><h4>Galaxy</h4></label>
+                              <input type="galaxy" class="form-control" name="galaxy" placeholder="{{owner.galaxy}}" title="Enter a Galaxy location" ngModel>
                           </div>
                       </div>
                     <div class="form-group">
                         <div class="column">
-                            <label for="email"><h4>Planet</h4></label>
-                            <input type="email" class="form-control" name="planet" placeholder="Planet name" title="Enter a Planet location" ngModel>
+                            <label for="planet"><h4>Planet</h4></label>
+                            <input type="planet" class="form-control" name="planet" placeholder="{{owner.planet}}" title="Enter a Planet location" ngModel>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="column">
+                            <label for="bio"><h4>Bio</h4></label>
+                            <textarea type="bio" form="formInfo" class="form-control" name="bio" placeholder="{{owner.bio}}" title="Enter a Bio" ngModel></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <div class="column">
+                                <br><br><br><br>
+                            </div>
+                        </div>
                     <div class="column-button">
                         <br>
                         <button class="btn btn-lg btn-success" type="submit">Save</button>
