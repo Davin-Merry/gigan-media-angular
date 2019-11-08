@@ -1,4 +1,4 @@
-<div *ngIf="!doneLoading" style="text-align: center; color:white; ">Loading...</div>
+<div *ngIf="!doneLoading" style="color:white; ">Loading...</div>
 <div *ngFor="let p of posts; index as i">
     <div class="container">
         <div class="row">
@@ -22,7 +22,7 @@
                             <div class="row-content">
                                 <div class="list-group-item-heading">
                                     <a href="javascript:void(0);" (click)="gotoSelectedProfile(i)">
-                                        <small>{{p.blogger.firstName}} {{p.blogger.lastName}}</small>
+                                        <small style="color:white;">{{p.blogger.firstName}} {{p.blogger.lastName}}</small>
                                     </a>
                                 </div>
                                 <small>
@@ -31,13 +31,16 @@
                                 </small>
                             </div>
                         </div>
-                        <p>{{p.text}}</p>
+                        <p style="color:white;">{{p.text}}</p>
                     </div>
-                    
                 </div>
             </div>
+            <div style="float:right">
+                <a *ngIf="p.images" href={{p.images}}>
+                    <img class="post-image" src="{{p.images}}" alt="">
+                </a>
+            </div>
         </div>
-        <span><button type="button" class="btn btn-secondary btn-sm">Like</button></span><span> ({{p.likes.length}} Likes)</span>
-    <div></div>
+        <span><button type="button" class="btn btn-secondary btn-sm" (click)="likePost(i)">Like</button></span><span> ({{p.likes}} Likes)</span>
     </div>
 </div>

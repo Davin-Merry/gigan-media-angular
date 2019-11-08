@@ -125,15 +125,24 @@
   }
 
   .container {
+  width:70%;
   float: left; 
   margin-bottom:15px;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 25px; 
   padding-bottom:10px;
-  padding-left:30px;
+  padding-left:40px;
   padding-right:30px;
   margin-right: 10px; 
   margin-left:10px;  
   }
+  .column {
+    float: left
+  }
 
- 
+  .post-image {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    float: right;
+  }

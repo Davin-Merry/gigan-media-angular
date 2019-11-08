@@ -10,13 +10,42 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  image: any = null;
+  image: File = null;
+  fileToUpload: string = '';
+  fileURL: string = '';
 
   constructor(private router: Router, private http:HttpClient) { }
 
   ngOnInit() {
     if (!sessionStorage.getItem('user')) {
       this.router.navigate(['/login']);
+    }
+  }
+
+  fileSelect(event: any) {
+    this.image = event.target.files[0];
+    this.fileToUpload = '(' + this.image.name + ')';
+    this.uploadImage(this.image);
+  }
+
+  uploadImage(file: File) {
+    if (this.image != null) {
+
+      let fr = new FileReader();
+      fr.readAsArrayBuffer(file);
+      fr.onloadend = (e) => {
+        console.log(fr.result);
+      }
+
+      let fileName = file.name.split(".");
+      let fileType = fileName[fileName.length - 1];
+      
+      this.http.post(environment.mainUrl + 'post/uploadPostImage.app?id='
+        + fileName + '&type=' + fileType, file)
+      .toPromise().then(r => {
+        let d: any = JSON.parse(JSON.stringify(r));
+        this.fileURL = d.newURL;
+      });
     }
   }
 
@@ -28,7 +57,7 @@ export class HomeComponent implements OnInit {
       postId: 0,
       blogger: JSON.parse(sessionStorage.getItem('user')),
       text: form.value.postContent,
-      images: [],
+      images: this.fileURL,
       time: Date.now(),
       likes: []
     }
@@ -38,6 +67,7 @@ export class HomeComponent implements OnInit {
     ).toPromise().then(r => {
       console.log("Data reflected:")
       console.log(r);
+      location.reload();
     });
   }
 }

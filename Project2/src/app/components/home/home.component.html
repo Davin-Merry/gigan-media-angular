@@ -10,13 +10,14 @@
     		    
     		    <div class="form-group">
     		        <label for="description"><h2 style="color:white;">Make a post!</h2></label>
-    		        <textarea rows="5" class="form-control" name="postContent" style="resize: none;" ngModel></textarea>
+    		        <textarea rows="5" class="form-control" name="postContent" style="resize: none; background-color:grey; color:white;" ngModel></textarea>
     		    </div>
     		    <div class="form-group">
-					<h6>Add a photo!</h6>
+					<h6 style="color:white">Add a photo! {{fileToUpload}}</h6>
 					<label class="btn btn-secondary" style=margin-right:500px>
 						Upload
-						<input type="file" accept="image/*" (change) = "uploadImage($event.target.files[0])" name="postPhoto" hidden>
+						<input type="file" accept="image/*" (change) = "fileSelect($event)" name="postPhoto" hidden>
+						
 					</label>
     		        <button type="submit" class="btn btn-primary" [hidden]="textLength">
     		            Create
@@ -35,9 +36,10 @@
 </div>
 </div>
 <div class ="column2">
-	<img class="addImage" alt="" src="https://i.pinimg.com/474x/ed/70/c2/ed70c29265e6ab7119bea2e389742bd4.jpg" /> />
-	<img style="width:240" class="addImage" alt="" src="https://i.pinimg.com/564x/a3/8d/c8/a38dc836466e0cdda7845dc6663aa3b4.jpg"/>
+	<h3 style="color:white; margin-left:60px;">Sponsored by...</h3>
+	<img class="addImage" alt="" src="https://i.pinimg.com/474x/ed/70/c2/ed70c29265e6ab7119bea2e389742bd4.jpg" /> 
+	<!-- <img style="width:240" class="addImage" alt="" src="https://i.pinimg.com/564x/a3/8d/c8/a38dc836466e0cdda7845dc6663aa3b4.jpg"/>
 	<img class="addImage" alt="" src="https://i.pinimg.com/474x/73/09/4e/73094e062316fa1224d2661b4c761a22.jpg"/>
-	<img class="addImage2" alt="" src="https://i.pinimg.com/564x/af/3a/e3/af3ae3cbdbd3e8410d18fec94cd9df76.jpg"/>
+	<img class="addImage2" alt="" src="https://i.pinimg.com/564x/af/3a/e3/af3ae3cbdbd3e8410d18fec94cd9df76.jpg"/> -->
 	
 </div>

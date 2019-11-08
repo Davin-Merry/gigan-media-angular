@@ -58,15 +58,27 @@ export class AccountComponent implements OnInit {
       this.owner.planet = form.value.planet;
       this.owner.bio = form.value.bio;
       sessionStorage.setItem('user', JSON.stringify(this.owner));
-      console.log(r);
       location.reload();
     });
+  }
+
+  verifyInput() {
+    //TODO
+  }
+
+  performPasswordChange(form: NgForm) {
+    this.http.post(environment.mainUrl + 'user/updatePassword.app', {
+      email: this.owner.email,
+      password: form.value.newPass
+    }).toPromise().then(r => {
+      location.reload();
+    })
   }
 
   fileSelect(event: any) {
     this.selectedFile = event.target.files[0];
     this.fileToUpload = this.selectedFile.name;
-    this.currentImage = this.fileToUpload;
+    //this.currentImage = this.fileToUpload;
     this.submitClass = "btn btn-primary";
   }
 
@@ -76,10 +88,6 @@ export class AccountComponent implements OnInit {
   
   uploadImage(file: File) {
     if (this.selectedFile != null) {
-      console.log(this.owner);
-      console.log(sessionStorage.getItem('user'));
-      console.log(file);
-      console.log(file.name);
 
       let fr = new FileReader();
       fr.readAsArrayBuffer(file);
@@ -90,7 +98,15 @@ export class AccountComponent implements OnInit {
       let fileName = file.name.split(".");
       let fileType = fileName[fileName.length - 1];
       
-      //TODO: Fix live update
+      this.http.post(environment.mainUrl + 'user/updateProfilePic.app?id='
+        + this.owner.email + '&type=' + fileType, file)
+      .toPromise().then(r => {
+        //let u = JSON.parse(sessionStorage.getItem('user'));
+        //u.profileImage = r.toString();
+        //sessionStorage.setItem('user', JSON.stringify(u));
+        location.reload();
+      });
+      /*
       this.http.post(environment.mainUrl + 'user/updateProfilePic.app?id='
         + this.owner.email + '&type=' + fileType, file,
       {
@@ -102,6 +118,7 @@ export class AccountComponent implements OnInit {
           location.reload();
         }
       });
+      */
     }
   }
   

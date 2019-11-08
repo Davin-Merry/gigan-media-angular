@@ -7,8 +7,8 @@ label small {
 }
 
 .text-left {
-  max-width: 320px;
-  max-height: 240px;
+  max-width: 250px;
+  max-height: 333px;
 }
 
 body, html {
@@ -41,7 +41,6 @@ padding-bottom: 10px;
   width: 30%;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 25px; 
-  padding-left: 30px;
   padding-bottom: 30px;
   padding-top: 30px;
   margin-top: 30px;
@@ -52,14 +51,17 @@ padding-bottom: 10px;
 
 .addImage {
   padding-top:10px;
-  width: 160px;
-  height: 230px;
+  display:block; 
+  margin-left:auto;
+  margin-right:auto;
+  width: 290px;
+  height: 425px;
   object-fit: cover;
 }
 
-.addImage2 {
-  padding-left:10px;
-  width: 208px;
-  height: 208px;
-  object-fit: cover;
-}
+// .addImage2 {
+//   padding-left:10px;
+//   width: 208px;
+//   height: 208px;
+//   object-fit: cover;
+// }

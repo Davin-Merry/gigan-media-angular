@@ -1,5 +1,5 @@
 
-<hr>
+<hr style="margin-top: 10px">
 <div class="container">
     <div class="row">
   		<div class="col-sm-10"><h1>Account Settings ({{owner.firstName}} {{owner.lastName}})</h1></div>
@@ -83,7 +83,7 @@
                     </div>
                 </form>
                 <br><br>
-                <form class="form2" #passUpdate=ngForm (ngSubmit) = "performPassUpdate(passUpdate)">
+                <form class="form2" #passUpdate=ngForm (ngSubmit) = "performPasswordChange(passUpdate)">
                       <div class="form-group">
                           
                           <div class="column">

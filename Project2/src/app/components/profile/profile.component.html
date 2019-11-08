@@ -1,18 +1,18 @@
 <div class="container">    
-  <div class="jumbotron">
+  <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.9);" >
     <div class="row">
       <div class="col-md-4 col-xs-12">
           <img class="profile-image" src={{owner.profileImage}} alt="No image">
       </div>
       <div class="col-md-8 col-xs-12">
-        <div class="container" style="border-bottom:1px solid black">
-          <h2>{{owner.firstName}} {{owner.lastName}}</h2>
+        <div class="container" style="border-bottom:1px solid rgb(206, 203, 203)">
+          <h2 style="color:white">{{owner.firstName}} {{owner.lastName}}</h2>
         </div>
         <hr>
         <ul class="container details">
-          <li><span><h5>Galaxy, Planet</h5></span><span>{{owner.galaxy}}, {{owner.planet}} </span></li>
-          <li><h5>Email</h5>{{owner.email}}</li>
-          <li><span><h5>Bio</h5></span><span>{{owner.bio}}</span></li>
+          <li><span><h5 style="color:white">Galaxy, Planet</h5></span><span style="color:white">{{owner.galaxy}}, {{owner.planet}} </span></li>
+          <li><h5 style="color:white">Email</h5>{{owner.email}}</li>
+          <li><span><h5 style="color:white">Bio</h5></span><span>{{owner.bio}}</span></li>
         </ul>          
       </div>
     </div>
