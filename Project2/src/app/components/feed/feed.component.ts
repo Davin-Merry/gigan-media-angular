@@ -14,13 +14,23 @@ export class FeedComponent implements OnInit {
   doneLoading = false;
   profilePosts = null;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { console.log('reached') }
 
   ngOnInit() {
     this.http.get(environment.mainUrl + "post/getAll.app").toPromise().then(r => {
       console.log(r);
       this.posts = r;
       this.doneLoading = true;
+      if (this.router.url != '/home') {
+        let selectedPosts = this.posts;
+        this.posts = [];
+        let u = JSON.parse(sessionStorage.getItem('selectedUser'));
+          selectedPosts.forEach(e => {
+            if (e.blogger.email === u.email) {
+              this.posts.push(e);
+            }
+          });
+      }
     });
   }
 
