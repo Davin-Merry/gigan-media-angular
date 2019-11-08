@@ -125,12 +125,15 @@
   }
 
   .container {
-  width: 50%;
+  float: left; 
   margin-bottom:15px;
-  background:rgba(255,255,255,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 25px; 
   padding-bottom:10px;
-  padding-left:20px; 
+  padding-left:30px;
+  padding-right:30px;
+  margin-right: 10px; 
+  margin-left:10px;  
   }
 
  
