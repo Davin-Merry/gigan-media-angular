@@ -1,0 +1,46 @@
+<div *ngIf="!doneLoading" style="color:white; ">Loading...</div>
+<div *ngFor="let p of posts; index as i">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <!--
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <a href="#">
+                        <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/10/http-www.urchinbali.comgallery.jpg"
+                            class="img-responsive img-box img-thumbnail" alt="">
+                    </a>
+                </div>
+                -->
+                <div>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-picture">
+                                <a href="javascript:void(0);" (click)="gotoSelectedProfile(i)">
+                                    <img class="circle img-thumbnail img-box" src="{{p.blogger.profileImage}}" alt="">
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <div class="list-group-item-heading">
+                                    <a href="javascript:void(0);" (click)="gotoSelectedProfile(i)">
+                                        <small style="color:white;">{{p.blogger.firstName}} {{p.blogger.lastName}}</small>
+                                    </a>
+                                </div>
+                                <small>
+                                    <em class="glyphicon glyphicon-time"></em>{{p.time | date}}
+                                    <br><br>
+                                </small>
+                            </div>
+                        </div>
+                        <p style="color:white;">{{p.text}}</p>
+                    </div>
+                </div>
+                <div class="column2" style="margin-left:160px; margin-top:40px">
+                        <a *ngIf="p.images" href={{p.images}}>
+                            <img class="post-image" src="{{p.images}}" alt="">
+                        </a>
+                </div>
+            </div>
+        </div>
+        <span><button type="button" class="btn btn-secondary btn-sm" (click)="likePost(i)">Like</button></span><span> ({{p.likes}} Likes)</span>
+    </div>
+</div>

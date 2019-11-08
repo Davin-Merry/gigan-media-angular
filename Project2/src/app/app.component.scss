@@ -1,0 +1,16 @@
+.mainBackground {
+    background-image: url("https://apod.nasa.gov/apod/image/1911/m45astrograph.jpg");
+    background-size: cover;
+    display: block;
+    filter: brightness(60%);
+    height: 800px;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.mainContent {
+    background: rgba(255, 255, 255, 0);
+    z-index: 2;
+}

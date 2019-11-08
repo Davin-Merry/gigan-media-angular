@@ -1,0 +1,71 @@
+.require {
+  color: #666;
+}
+label small {
+  color: #999;
+  font-weight: normal;
+}
+
+.text-left {
+  max-width: 250px;
+  max-height: 333px;
+}
+
+body, html {
+  height: 100%;
+}
+
+.formContainer {
+  margin-bottom:15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 25px; 
+  padding-bottom:10px;
+  padding-left:40px;
+  padding-right:40px;
+  margin-right: 10px; 
+  margin-left:10px;   
+}
+
+.container{
+  float: left;
+}
+
+.column{
+float: left;
+padding-right: 50px;
+padding-bottom: 10px;
+}
+
+.column2 {
+  float:right;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 25px; 
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin-top: 30px;
+  margin-right: 50px;
+  position: fixed;
+  right:0;
+}
+
+.addImage {
+  padding-top:10px;
+  display:block; 
+  margin-left:auto;
+  margin-right:auto;
+  width: 290px;
+  height: 425px;
+  object-fit: cover;
+}
+
+.postbox:focus {
+  border: 3px solid #555;
+}
+
+// .addImage2 {
+//   padding-left:10px;
+//   width: 208px;
+//   height: 208px;
+//   object-fit: cover;
+// }
