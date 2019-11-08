@@ -34,11 +34,11 @@
                         <p style="color:white;">{{p.text}}</p>
                     </div>
                 </div>
-            </div>
-            <div style="float:right">
-                <a *ngIf="p.images" href={{p.images}}>
-                    <img class="post-image" src="{{p.images}}" alt="">
-                </a>
+                <div class="column2" style="margin-left:160px; margin-top:40px">
+                        <a *ngIf="p.images" href={{p.images}}>
+                            <img class="post-image" src="{{p.images}}" alt="">
+                        </a>
+                </div>
             </div>
         </div>
         <span><button type="button" class="btn btn-secondary btn-sm" (click)="likePost(i)">Like</button></span><span> ({{p.likes}} Likes)</span>

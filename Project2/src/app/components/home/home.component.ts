@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
       text: form.value.postContent,
       images: this.fileURL,
       time: Date.now(),
-      likes: []
+      likes: 0
     }
     console.log(data);
 
